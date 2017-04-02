@@ -1,0 +1,15 @@
+environment: development
+
+boards:
+  speedy:
+    port: /dev/tty.usbmodem1411
+#    port: /dev/tty.usbmodem141421
+    baudrate: 9600
+
+schedule:
+  lights:
+    on: "06:00"
+    off: "20:00"
+  feeding:
+    interval_days: 2
+    time: "06:05"
