@@ -45,10 +45,11 @@ def register_schedule(test=False):
         schedule.every().day.at(job_time_2).do(basking_lights_off)
         return
 
-    schedule.every(2).days.at("06:15").do(feed)
-    schedule.every().day.at("06:00").do(basking_lights_on)
-    schedule.every().day.at("20:00").do(basking_lights_off)
-    schedule.every(30).minutes.do(basking_lights_status)
+    schedule_config = config["schedule"]
+    schedule.every(schedule_config["feeding_interval"]).days.at(schedule_config["feeding_time"]).do(feed)
+    schedule.every().day.at(schedule_config["lights_on"]).do(basking_lights_on)
+    schedule.every().day.at(schedule_config["lights_off"]).do(basking_lights_off)
+    schedule.every(schedule_config["lights_status_interval"]).minutes.do(basking_lights_status)
 
 
 speedy_board_id = "speedy"
