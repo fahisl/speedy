@@ -7,9 +7,8 @@ boards:
     baudrate: 9600
 
 schedule:
-  lights:
-    on: "06:00"
-    off: "20:00"
-  feeding:
-    interval_days: 2
-    time: "06:05"
+  lights_on: "06:00"
+  lights_off: "20:00"
+  lights_status_interval: 30
+  feeding_interval: 2
+  feeding_time: "06:05"
