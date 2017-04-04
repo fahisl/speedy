@@ -45,8 +45,7 @@ class SerialClient:
             out += self.board.read().decode("utf-8")
 
         try:
-            response = json.loads(out)
-        except Exception as e:
-            response = dict()
+            return json.loads(out)
 
-        return response
+        except json.JSONDecodeError:
+            return dict()
