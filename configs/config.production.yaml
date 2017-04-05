@@ -1,0 +1,13 @@
+environment: production
+
+boards:
+  speedy:
+    port: /dev/tty.usbmodem621
+    baudrate: 9600
+
+schedule:
+  lights_on: "06:00"
+  lights_off: "20:00"
+  lights_status_interval: 30
+  feeding_interval: 2
+  feeding_time: "06:05"
