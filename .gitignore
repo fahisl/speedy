@@ -85,3 +85,4 @@ ENV/
 .ropeproject
 
 .idea/
+config.yaml
