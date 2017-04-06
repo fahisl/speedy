@@ -3,7 +3,6 @@ environment: development
 boards:
   speedy:
     port: /dev/tty.usbmodem1411
-#    port: /dev/tty.usbmodem141421
     baudrate: 9600
 
 schedule:

@@ -20,17 +20,15 @@ class APIClient:
         response = requests.post(url)
         print_result(response.json())
 
-    def set_lights(self, power):
-        url = "%s/lighting" % self.base_url
-        data = dict(power=power)
-        response = requests.put(url, data=json.dumps(data))
+    def lights_on(self):
+        url = "%s/lighting/on" % self.base_url
+        response = requests.post(url)
         print_result(response.json())
 
-    def lights_on(self):
-        self.set_lights(True)
-
     def lights_off(self):
-        self.set_lights(False)
+        url = "%s/lighting/off" % self.base_url
+        response = requests.post(url)
+        print_result(response.json())
 
     def lights_status(self):
         url = "%s/lighting" % self.base_url

@@ -35,20 +35,14 @@ def feeder_reset():
     return json_response(feeder.reset())
 
 
-@api.route("/lighting", methods=["PUT"])
+@api.route("/lighting/on", methods=["POST"])
 def basking_lights_on():
-    result = None
-    try:
-        body = request.get_json()
-        requested_power = body["power"]
-        if not requested_power:
-            result = lighting.power_off()
-        else:
-            result = lighting.power_on()
-    except Exception as e:
-        return json_response({"message": str(e), "error": True}, 400)
+    return json_response(lighting.power_on())
 
-    return json_response(result)
+
+@api.route("/lighting/off", methods=["POST"])
+def basking_lights_off():
+    return json_response(lighting.power_off())
 
 
 @api.route("/lighting", methods=["GET"])
@@ -63,4 +57,4 @@ if __name__ == '__main__':
     print("Speedy board connected")
     feeder = Feeder(speedy_board)
     lighting = Lighting(speedy_board)
-    api.run(debug=True)
+    api.run(debug=False)

@@ -10,12 +10,15 @@ def register_test_schedule():
     current_time = datetime.now()
 
     job_time_1 = (current_time + timedelta(seconds=60)).strftime("%H:%M")
-    schedule.every().day.at(job_time_1).do(api_client.light_on_feed)
+    schedule.every().day.at(job_time_1).do(api_client.lights_on)
     print("Feeding and lights-on scheduled at %s" % job_time_1)
 
     job_time_2 = (current_time + timedelta(seconds=120)).strftime("%H:%M")
     schedule.every().day.at(job_time_2).do(api_client.lights_off)
     print("Lights off scheduled at %s" % job_time_2)
+
+    schedule.every(30).seconds.do(api_client.lights_status)
+    schedule.every().minute.do(api_client.feed_now)
 
     return schedule
 
