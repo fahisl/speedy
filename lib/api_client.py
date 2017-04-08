@@ -1,5 +1,6 @@
 import requests
 import logging
+from lib.config import config
 
 
 class APIClientException(BaseException):
@@ -8,7 +9,7 @@ class APIClientException(BaseException):
 
 class APIClient:
     def __init__(self):
-        self.base_url = "http://10.0.1.13:5000"
+        self.base_url = "http://%s:%s" % (config["api"]["host"], config["api"]["port"])
 
     def feed_now(self):
         url = "%s/feeder/feed_now" % self.base_url

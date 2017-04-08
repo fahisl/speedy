@@ -8,6 +8,10 @@ boards:
 schedule:
   lights_on: "06:00"
   lights_off: "20:00"
-  lights_status_interval: 30
+  lights_status_interval: 2
   feeding_interval: 2
   feeding_time: "06:05"
+
+api:
+  host: localhost
+  port: 5000
