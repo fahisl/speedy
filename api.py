@@ -1,7 +1,12 @@
 import json
+import logging
 from flask import Flask, request, make_response
 from lib import SerialClient, Feeder, FeederException, Lighting, config
 
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s %(levelname)s %(message)s'
+)
 api = Flask(__name__)
 feeder = None
 lighting = None
