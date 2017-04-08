@@ -57,4 +57,4 @@ if __name__ == '__main__':
     print("Speedy board connected")
     feeder = Feeder(speedy_board)
     lighting = Lighting(speedy_board)
-    api.run(debug=False)
+    api.run(debug=False, host="0.0.0.0")
