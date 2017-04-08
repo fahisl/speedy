@@ -59,7 +59,7 @@ if __name__ == '__main__':
     speedy_board_id = "speedy"
     speedy_board = SerialClient(config["boards"][speedy_board_id]["port"], speedy_board_id)
     speedy_board.connect()
-    print("Speedy board connected")
+    logging.info("Speedy board connected")
     feeder = Feeder(speedy_board)
     lighting = Lighting(speedy_board)
     api.run(debug=False, host="0.0.0.0")

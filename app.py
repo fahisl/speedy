@@ -7,6 +7,8 @@ logging.basicConfig(
     format='%(asctime)s %(levelname)s %(message)s'
 )
 
+logging.getLogger('schedule').setLevel(logging.WARN)
+
 if config["environment"] == "development":
     schedule = scheduler.register_status_checker()
 else:
