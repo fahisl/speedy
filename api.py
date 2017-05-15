@@ -35,11 +35,6 @@ def feed_now():
         return json_response(result, 400)
 
 
-@api.route("/feeder/reset", methods=["POST"])
-def feeder_reset():
-    return json_response(feeder.reset())
-
-
 @api.route("/lighting/on", methods=["POST"])
 def basking_lights_on():
     return json_response(lighting.power_on())

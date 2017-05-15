@@ -7,8 +7,6 @@ class Feeder:
         self.board = serial_client
 
     def feed_now(self):
-        if not self.remaining_feeds():
-            raise FeederException("Cannot feed: feeder is empty")
         return self.board.write('feeder.feed;')
 
     def remaining_feeds(self):
